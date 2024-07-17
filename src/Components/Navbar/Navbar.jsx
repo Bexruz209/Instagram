@@ -4,9 +4,9 @@ import instagram from "../../assets/img/instagram.png";
 import icon from "../../assets/img/icon.png";
 import play from "../../assets/img/play.png"
 import "./Navbar.css";
-import "./Navbar.js"
 
 export default function Navbar() {
+    var inp2 = document.querySelector(".inp");
     return (
         <>
             <Container>
@@ -61,7 +61,7 @@ export default function Navbar() {
                                 <input type="password" placeholder="Password" className="inp" />
                             </div>
                             <div className="s">
-                               <button  className="tn">Log in</button>
+                                <button className="tn">Log in</button>
                             </div>
                             <div className="al">
                                 <div className="k"></div>
