@@ -72,7 +72,9 @@ export default function Navbar() {
                                 <img src={icon} alt="" className="icon" />
                                 <p className="nn">Log in with Facebook</p>
                             </div>
-                            <p className="as">Forgot password?</p>
+                            <a href="https://www.instagram.com/accounts/password/reset/">
+                                <p className="as">Forgot password?</p>
+                            </a>
                             <div className="emme_">
                                 <div className="emmer_">
                                     <div className="u">
