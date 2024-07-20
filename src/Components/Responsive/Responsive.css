@@ -1,0 +1,38 @@
+@media  (max-width: 575px){
+    .d{
+        text-align: center;
+    }
+
+    .u{
+        margin-top: 100px;
+        margin-bottom: 80px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+    }
+
+    .inpp{
+        text-align: left;
+        height: 39px;
+        border-radius: 2px;
+        margin-bottom: 7px;
+        border: 1px solid rgb(220, 220, 220);
+        width: 270px;
+        font-size: 12px;
+        font-weight: 400;
+        padding-left: 5px;
+    }
+
+    .inptt{
+        text-align: left;
+        height: 39px;
+        border-radius: 2px;
+        margin-bottom: 7px;
+        border: 1px solid rgb(220, 220, 220);
+        width: 270px;
+        font-size: 12px;
+        font-weight: 400;
+        padding-left: 5px;
+    }
+}
